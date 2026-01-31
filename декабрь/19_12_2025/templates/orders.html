@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Мои заказы{% endblock %}
+{% block content %}
+<div>
+    <h1>Мои заказы</h1>
+    {% if orders %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Сумма</th>
+            </tr>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order[0] }}</td>
+                    <td>{{ order[1] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Заказов нет</p>
+    {% endif %}
+</div>
+{% endblock %}

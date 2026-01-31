@@ -1,0 +1,79 @@
+@font-face {
+    font-family: Bup;
+    src: url(fonts/Bups.ttf);
+}
+
+ul{ /*селектор по тегу*/
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+} 
+
+.logo{ /*селектор по классу*/
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Bup;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(134, 75, 38);
+}
+
+a:hover{
+    color: #f00;
+}
+
+footer{
+    text-align: center;
+}
+.content{
+    width: 700px;
+    margin: auto;
+}
+
+input[type=submit]{
+    background-color: rgb(61, 88, 161);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+input[type=submit]:hover{
+    background-color: rgb(25, 42, 88);   
+    
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px
+}
+.product{
+    width: 300px;
+    padding: 5px;
+}
+.product_image img{
+    width: 300px;
+}
+h1{
+    text-align: center;
+}
+
+table tr th,table tr td{
+    padding: 5px;
+}
+.btn_delete{
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Каталог{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Каталог товаров</h1>
+    <hr>
+{% if error %}
+    {{ error }}
+{% endif %}
+    {% if products %}
+        <div class="products">
+            {% for product in products %}
+            <div class="product">
+                <div>
+                    <div>
+                        <h5>{{ product.name }}</h5>
+                        <p>Описание: {{ product.description }}</p>
+                        <p>Цена: {{ product.price }} ₽</p>
+                        <p>В наличии: {{ product.quantity }} шт.</p>
+                        <p>Категория: {{ product.category }}</p>
+                        <form method="post">
+                            <input type="number" name="quantity" value="1" min="1" >
+                            <input type="hidden" value="{{product.id}}" name="id_product">
+                            <input type="submit" value="Добавить в корзину">
+                        </form>
+
+                    </div>
+                </div>
+                <div class="product_image">
+                    <img src="{{ product.image }}" alt="{{ product.name }}" >
+                </div>
+                <hr>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Товаров пока нет</p>
+    {% endif %}
+</div>
+{% endblock %}
