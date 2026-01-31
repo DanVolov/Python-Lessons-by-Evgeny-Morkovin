@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Добавить </h2>
+<form method="post">
+    <p>
+        <label>Title: </label>
+        <input type="text" name="title" >
+    </p>
+      <p>
+        <label>Author: </label>
+        <input type="text" name="author" >
+    </p>
+    <p>
+        <label>isbn: </label>
+        <input type="text" name="isbn" >
+    </p>
+    <p>
+        <label>Year: </label>
+        <input type="text" name="year" >
+    </p>
+    <p>
+        <label>Quantity: </label>
+        <input type="text" name="quantity" >
+    </p>
+    <p>
+        <button>Добавить</button>
+    </p>
+</form>
+{% endblock %}
