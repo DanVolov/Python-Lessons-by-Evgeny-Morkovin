@@ -39,12 +39,11 @@ class Book:
 
 
 class Member:
-    def __init__(self, id, name, email, phone):
+    def __init__(self, name=None, email=None, phone=None, id=None):
         self.id = id
         self.name = name
         self.email = email
         self.phone = phone
-
         self.connection = create_connection()
         self.cursor = self.connection.cursor()
 
@@ -74,15 +73,20 @@ class Orders:
         self.connection = create_connection()
         self.cursor = self.connection.cursor()
 
-    def order_book(self, book_id, member_id):
-        self.cursor.execute('select available from books where book_id=?', (book_id,))
-        if self.cursor.fetcone()[0] > 0:
-            self.cursor.execute('update books set available = available - 1 where id=?', (book_id,))
-            self.cursor.execute('insert into orders (book_id, member_id) values (?, ?)', (book_id, member_id))
+    def get_all(self):
+        self.cursor.execute("SELECT * FROM orders")
+        return self.cursor.fetchall()
+
+    def get_by_id(self, id):
+        self.cursor.execute("SELECT * FROM orders WHERE id=?", (id,))
+        return self.cursor.fetchone()
+
+    def add(self, book_id, member_id):
+        self.cursor.execute('SELECT available FROM books WHERE id=?', (book_id,))
+        row = self.cursor.fetchone()
+        if row and row[0] > 0:
+            self.cursor.execute('UPDATE books SET available = available - 1 WHERE id=?', (book_id,))
+            self.cursor.execute('INSERT INTO orders (book_id, member_id) VALUES (?, ?)', (book_id, member_id))
             self.connection.commit()
-            success = True
-        else:
-            success = False
-        return success
-
-
+            return True
+        return False

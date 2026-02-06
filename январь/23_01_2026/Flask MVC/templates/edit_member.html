@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Редактировать читателя</h2>
+<form method="post">
+    <p>
+        <label>Имя: </label>
+        <input type="text" name="name" value="{{ member[1] }}" required>
+    </p>
+    <p>
+        <label>Email: </label>
+        <input type="email" name="email" value="{{ member[2] }}" required>
+    </p>
+    <p>
+        <label>Телефон: </label>
+        <input type="text" name="phone" value="{{ member[3] or '' }}">
+    </p>
+    <p>
+        <button>Обновить</button>
+    </p>
+</form>
+{% endblock %}

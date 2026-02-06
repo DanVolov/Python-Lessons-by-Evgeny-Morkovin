@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Читатели</h2>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Имя</td>
+        <td>Email</td>
+        <td>Телефон</td>
+        <td></td>
+    </tr>
+    {% for m in members %}
+    <tr>
+        <td>{{ m[0] }}</td>
+        <td>{{ m[1] }}</td>
+        <td>{{ m[2] }}</td>
+        <td>{{ m[3] }}</td>
+        <td>
+            <a href="/members/edit/{{ m[0] }}">Редактировать</a>
+            <a href="/members/delete/{{ m[0] }}">Удалить</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

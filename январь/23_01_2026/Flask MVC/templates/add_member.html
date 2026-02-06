@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Добавить читателя</h2>
+<form method="post">
+    <p>
+        <label>Имя: </label>
+        <input type="text" name="name" required>
+    </p>
+    <p>
+        <label>Email: </label>
+        <input type="email" name="email" required>
+    </p>
+    <p>
+        <label>Телефон: </label>
+        <input type="text" name="phone">
+    </p>
+    <p>
+        <button>Добавить</button>
+    </p>
+</form>
+{% endblock %}

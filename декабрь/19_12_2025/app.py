@@ -115,7 +115,7 @@ def order():
         else:
             flash('Корзина пуста', 'error')
 
-    return render_template('order.html')
+    return render_template('orders.html')
 
 @app.route('/orders')
 def orders():

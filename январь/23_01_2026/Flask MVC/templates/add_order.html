@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Добавить заказ</h2>
+{% if error %}<p style="color: red;">{{ error }}</p>{% endif %}
+<form method="post">
+    <p>
+        <label>Книга: </label>
+        <select name="book_id" required>
+            <option value="">Выберите книгу</option>
+            {% for b in books %}
+            <option value="{{ b[0] }}">{{ b[1] }} (автор: {{ b[2] }}, доступно: {{ b[6] }})</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <label>Читатель: </label>
+        <select name="member_id" required>
+            <option value="">Выберите читателя</option>
+            {% for m in members %}
+            <option value="{{ m[0] }}">{{ m[1] }} ({{ m[2] }})</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <button>Оформить заказ</button>
+    </p>
+</form>
+{% endblock %}
